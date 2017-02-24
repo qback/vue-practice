@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.container {
+			height: 30px;
+			border: 1px solid blue;
+			display: flex;
+			align-items: center;
+		}
+	</style>
+	<script src='../vue.js'></script>
+</head>
+<body>
+
+<div id="app">
+	<!-- show one or anther based on *show*, it is true or false (detach) -->
+	<p v-if='show'>You can see me!</p>
+	<p v-else>You can see else!</p>
+	<p>Do you also see me?</p>
+	<hr>
+	<p>Text below inside template tag</p>
+	<!-- text inside template will render if *show*=true -->
+	<template v-if='show'>
+		<pre>
+		--------------------
+		Text inside template
+		--------------------
+		</pre>
+	</template>
+	<div class="container">
+		<!-- *v-show* switch display:none on element -->
+		<p v-show='show'>This paragraph with v-show directive</p>
+	</div>
+
+	<button @click='show = !show'>Switch</button>
+
+</div>
+
+<script src='conditional.js'></script>
+</body>
+</html>
+

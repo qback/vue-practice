@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='../vue.js'></script>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click='counter++'>Increase</button>
+		<button v-on:click='counter--'>Decrease</button>
+		<!-- *@click* = *v-on:click* -->
+		<button @click='secondCounter++'>Increase Second Counter</button>
+		<p>Counter: {{ counter }} | {{ secondCounter }}</p>
+		<!-- *output* executes in -computed- therefore isn't used as a function (no braces)-->
+		<p>Result: {{ result() }} | {{ output }}</p>
+	</div>
+	<script src='computed.js'></script>
+</body>
+</html>

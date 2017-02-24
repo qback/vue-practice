@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+	</style>
+	<script src='../vue.js'></script>
+</head>
+<body>
+
+<div id="app">
+	<ul>
+		<!-- iterates array *ingredients* in data-->
+		<!-- every rendered element have to have unique key -->
+		<li v-for='ingredient in ingredients' :key='ingredient'>{{ingredient}}</li>
+		<hr>
+		<!-- in iterations: element -first, index - second -->
+		<li v-for='(ingredient, i) in ingredients' :key='ingredient + Date.now()'>{{ingredient}} ({{i}})</li>
+		<hr>
+		<!-- iteration with template tag (more than one DOM element) -->
+		<template v-for='(ingredient, i) in ingredients' >
+			<h3>{{i}}</h3>
+			<p>{{ingredient}}</p>
+		</template>
+		<hr>
+		<button @click='ingredients.push("spices")'>Add spices</button>
+	</ul>
+	<hr>
+	<!-- loop inside loop (array *person* iteration -> object iteration) -->
+	<ul>
+		<li v-for='person in persons'>
+			<div v-for='(value, key, index) in person'>
+				{{key}}:
+				{{value}} -
+				{{index}}
+			</div>
+		</li>
+	</ul>
+	<hr>
+	<!-- simple iteration -->
+	<ul v-for='n in 3'>
+		<li>{{n}}</li>
+	</ul>
+
+</div>
+
+<script src='lists.js'></script>
+</body>
+</html>
+

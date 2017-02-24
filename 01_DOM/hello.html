@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='../vue.js'></script>
+</head>
+<body>
+	<div id="app">
+		<!-- directive *v-once* render the element and component once only -->
+		<h1 v-once>{{ title }}</h1>
+		<p>
+			{{ sayHello() }}
+			<!-- directive *v-bind* allows use *data.link* as attribute, not need curly braces-->
+			<a v-bind:href="link" target='_blank'>Google</a>
+			<!-- *:href* = *v-bind:href* -->
+			<a :href="link" target='_blank'>Google2</a>
+		</p>
+		<hr>
+		<!-- directive *v-html* allows insert HTML inside (not escaped)-->
+		<p v-html='linkHTML'></p>
+	</div>
+	<script src='hello.js'></script>
+</body>
+</html>

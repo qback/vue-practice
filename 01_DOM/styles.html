@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.demo {
+			float: left;
+			width: 100px;
+			height: 100px;
+			margin-right: 20px;
+			background-color: grey;
+			transition: all .1s;
+			border:2px solid transparent;
+		}
+		.blue {
+			background-color: blue;
+		}
+		.red {
+			border:2px solid red;
+		}
+		.green {
+			background-color: green;
+		}
+		input {
+			clear: both;
+			margin-top: 20px;
+
+		}
+	</style>
+	<script src='../vue.js'></script>
+</head>
+<body>
+	<div id="app">
+		<!-- on click switch *attachRed*(boolean) to do *red* class active or not -->
+		<div
+			class="demo"
+			@click='attachRed = !attachRed'
+			:class='{red: attachRed}'>
+			via classes
+		</div>
+		<!-- *divClasses* changes dynamically -->
+		<div
+			class="demo"
+			:class='divClasses'>via classes</div>
+		<!-- class below stated automaically via input, can be array og classes or sinle one -->
+		<div class="demo" :class='[color]'>via classes</div>
+		<!-- inline style via input -->
+		<div class="demo" style='backgroundColor: color'>via inline styles</div>
+		<!-- *divStyles* changes automatically -->
+		<div class="demo" :style='divStyles'>via inline styles</div>
+		<!-- array of inline styles -->
+		<div class="demo" :style='[{color: "light" + color}, divStyles]'>via inline styles</div>
+		<hr>
+		<input type="text" v-model='color'>
+	</div>
+
+
+	<script src='styles.js'></script>
+</body>
+</html>

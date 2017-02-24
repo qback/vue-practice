@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='../vue.js'></script>
+</head>
+<body>
+	<div id="app">
+		<!-- *v-on* allows use any DOM events, event($event) object transmitted in fuction (we can use our own argument)  -->
+		<button v-on:click='add(3, $event)'>Add + 3</button>
+		<button v-on:click='counter++'>Add + 1</button>
+		<p>{{ counter }}</p>
+		<!-- vue allows use any valid js code (inside braces, in directives) -->
+		<p>умноженное на 2: {{ counter * 2 }}</p>
+		<p>inline-условие: {{ counter > 5 ? 'значение > 5' : 'добавь-ка еще' }}</p>
+		<p v-on:mousemove='changeCoordinates'>
+			Paragraph coordinates: {{ x }}/{{ y }} --
+			<!-- *stop* - event modifier (like event.stopPropagation) -->
+			<span v-on:mousemove.stop='' style='backgroundColor:yellow'>STOP PROPAGATION SPOT VIA MODIFIER</span>
+		</p>
+		<!-- *enter, space* - key modifiers (onSubmit, on key Space) -->
+		<input type="text" name="modExample" v-on:keyup.enter.space='alertMe'><br>
+		<div>
+			Two-way-binding: input
+			<!-- two way binding via *v-model* -->
+			<input type="text" name="binding" v-model='name'>
+		</div>
+		<p>Output: {{ name }}</p>
+	</div>
+	<script src='events.js'></script>
+</body>
+</html>
