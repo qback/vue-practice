@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>088 More about .vue Files and the CLI</title>
+</head>
+<body>
+<div class="asset-container">
+    <div class="asset-container__padding article-view">
+        <div class="w3c-default">
+            <p><strong>The ".vue" File</strong></p>
+
+<p>You can learn more about ".vue" Files in this Article from the official Docs: <a href="http://vuejs.org/guide/single-file-components.html" rel="nofollow">http://vuejs.org/guide/single-file-components.html</a></p>
+
+
+
+
+
+
+
+
+
+
+
+<p>Learn more about the <code>render()</code>  method in another Article in the official Docs: <a href="http://vuejs.org/guide/render-function.html" rel="nofollow">http://vuejs.org/guide/render-function.html</a></p>
+
+
+
+
+
+
+
+
+
+
+
+<p>Finally, it's important to be aware of the fact, that you can also load your App.vue File (your main Component/ Instance) via the following two Ways (Alternatives to <code>render()</code> ):</p>
+
+
+
+
+
+
+
+<p><strong>1) Using the ES6 Spread Operator</strong> (for that, you need to add babel-preset-stage-2 as a Dependency and to your .babelrc File):</p>
+
+
+
+
+
+
+
+<p><code>npm install --save-dev babel-preset-stage-2</code> </p>
+
+
+
+
+
+
+
+<p><strong>.babelrc:</strong></p>
+
+
+
+
+
+
+
+<pre class="prettyprint linenums">{
+  "presets": [
+    ["es2015", { "modules": false }],
+    ["stage-2"]
+  ]
+}
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><br></p>
+
+
+
+
+
+
+
+<pre class="prettyprint linenums">import Vue from 'vue'
+import App from './App.vue'
+
+new Vue({
+  el: '#app',
+  ...App
+});
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p><br></p>
+
+
+
+
+
+
+
+
+
+
+
+<p><strong>2) Using <code>mount()</code> :</strong></p>
+
+
+
+<p>Also install the stage-2 preset as described above.</p>
+
+
+
+
+
+<pre class="prettyprint linenums">import Vue from 'vue'
+import App from './App.vue'
+
+const vm = new Vue({
+  ...App
+});
+
+vm.$mount('#app');</pre>
+
+
+
+
+
+
+
+<p><br></p>
+
+
+
+
+
+<p><strong>The CLI</strong></p>
+
+
+
+<p>Learn more about the CLI here: <a href="https://github.com/vuejs/vue-cli" rel="nofollow">https://github.com/vuejs/vue-cli</a></p><p><strong>Local CSS / Sass Files and CLI Templates</strong></p><p>The <strong>webpack-simple</strong> template <strong>doesn't support local CSS or Sass files</strong>, because no CSS loader is set up.</p><p>Use the <strong>webpack</strong> template (not webpack-simple) to get this functionality: <a href="https://github.com/vuejs-templates/webpack" rel="nofollow">https://github.com/vuejs-templates/webpack</a></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
