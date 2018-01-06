@@ -31,13 +31,13 @@
         <input required type="text" class="form-control" v-model="phoneNumber">
       </div>
       <div class="form-group">
-        <button class="btn btn-info" v-on:click="addGuestInput">Добавить гостей</button>
+        <button class="btn btn-info" v-on:click.prevent="addGuestInput">Добавить гостей</button>
       </div>
-      <div class="form-group" v-for="(guest, index) in guests">
+      <div class="form-group" v-for="(guest, index) in guests" v-on:dblclick="handleGuestClick($event, index)">
         <label for="">Guest {{index}}</label>
         <input required type="text" class="form-control" v-model="guests[index]">
       </div>
-      <button class="btn btn-primary" v-on:click="submitForm">Подтвердить форму</button>
+      <button class="btn btn-primary" v-on:click.prevent="submitForm">Подтвердить форму</button>
     </form>
     <div class="card" v-if="formCompleted">
       <table class="table table-bordered">
@@ -79,12 +79,18 @@
       },
       methods: {
         submitForm(ev) {
-          ev.preventDefault();
+          // ev.preventDefault();
           this.formCompleted = !this.formCompleted;
         },
         addGuestInput(ev) {
           this.guests.push('');
-          ev.preventDefault();
+          // ev.preventDefault();
+        },
+        handleGuestClick(ev, index) {
+          console.log(index);
+          this.guests = this.guests.filter((item, idx) => {
+            return idx != index;
+          })
         }
       },
       computed: {
